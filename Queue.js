@@ -19,7 +19,22 @@ function Queue() {
     return collection[0];
   }
 
-  this.size function () {
+  this.size = function () {
     return collection.length;
   }
+
+  this.isEmpty = function () {
+    return (collection.lengtn === 0);
+  }
 }
+
+// Examples
+
+const q = new Queue();
+q.enqueue('a');
+q.enqueue('b');
+q.enqueue('c');
+q.print();
+q.dequeue();
+console.log(q.front());
+q.print();
