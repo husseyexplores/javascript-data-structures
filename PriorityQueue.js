@@ -47,6 +47,7 @@ function PriorityQueue() {
 // Examples
 
 const pq = new PriorityQueue();
+pq.enqueue(['Rabbit', 4]);
 pq.enqueue(['Dog', 2]);
 pq.enqueue(['Cat', 3]);
 pq.enqueue(['Cow', 1]);
