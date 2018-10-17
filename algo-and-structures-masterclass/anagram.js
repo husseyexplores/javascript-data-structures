@@ -13,6 +13,7 @@ const isValidAnagram = (first, second) => {
   }
 
   for (let char of second) {
+    // if letter doesn't exist, return false, else (if found) minus one from the letter count
     if (!lookup[char]) {
       return false;
     } else {
