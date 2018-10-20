@@ -13,9 +13,9 @@ const maxSubarrySum1 = (arr, num) => {
     }
   }
   return max;
-}
+};
 
-maxSubarrySum1([2, 6, 9, 2, 1, 8, 5, 6, 3], 3); //19
+maxSubarrySum1([2, 6, 9, 2, 1, 8, 5, 6, 3], 3); // 19
 
 // Sliding window pattern
 // TC => O(n) - SC => O(1)
@@ -38,6 +38,6 @@ const maxSubarrySum2 = (arr, num) => {
     max = Math.max(tempSum, max);
   }
   return max;
-}
+};
 
-maxSubarrySum2([2, 6, 9, 2, 1, 8, 5, 6, 3], 3); //19
+maxSubarrySum2([2, 6, 9, 2, 1, 8, 5, 6, 3], 3); // 19

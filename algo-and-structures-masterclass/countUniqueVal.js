@@ -6,7 +6,8 @@
 const countUniqueVal = arr => {
   if (!arr.length) {
     return 0;
-  } else if (arr.length === 1) {
+  }
+  if (arr.length === 1) {
     return 1;
   }
 
@@ -20,7 +21,7 @@ const countUniqueVal = arr => {
     console.log(i, j);
   }
   return i + 1;
-}
+};
 
 countUniqueVal([1, 1, 1, 1, 2]); // 2
 countUniqueVal([1, 2, 2, 3, 4, 4, 6]); // 5

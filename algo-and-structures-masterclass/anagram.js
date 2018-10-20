@@ -1,4 +1,4 @@
-// TC => O(n)  
+// TC => O(n)
 
 const isValidAnagram = (first, second) => {
   // if length is not the same, it can never be an anagram
@@ -6,26 +6,25 @@ const isValidAnagram = (first, second) => {
     return false;
   }
 
-  const lookup = {}
+  const lookup = {};
 
-  for (let char of first) {
+  for (const char of first) {
     lookup[char] = (lookup[char] || 0) + 1;
   }
 
-  for (let char of second) {
+  for (const char of second) {
     // if letter doesn't exist, return false, else (if found) minus one from the letter count
     if (!lookup[char]) {
       return false;
-    } else {
-      lookup[char]--;
     }
+    lookup[char]--;
   }
 
   return true;
-}
+};
 
 isValidAnagram('', ''); // true
-isValidAnagram('aaz', 'zaa'); //true
+isValidAnagram('aaz', 'zaa'); // true
 isValidAnagram('rat', 'car'); // false
 isValidAnagram('qwerty', 'tyerwq'); // true
 isValidAnagram('sadsav', 'sadazz'); // false
