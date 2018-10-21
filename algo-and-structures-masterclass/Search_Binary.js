@@ -10,10 +10,9 @@ const binarySeach = (arr, val) => {
     } else if (val < arr[middle]) {
       end = middle - 1;
     }
-    middle = Math.floor(middle / 2);
+    middle = Math.floor((start + end) / 2);
   }
-  if (arr[middle] === val) return middle;
-  return -1;
+  return arr[middle] === val ? middle : -1;
 };
 
 binarySeach([8, 16, 24, 32, 40, 48, 56, 64, 72, 80], 32);
