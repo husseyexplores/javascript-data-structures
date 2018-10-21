@@ -1,31 +1,31 @@
 /* Queues  */
 
 function Queue() {
-  collection = [];
+  const collection = [];
 
-  this.print = function () {
+  this.print = function() {
     console.log(collection);
-  }
+  };
 
-  this.enqueue = function (element) {
+  this.enqueue = function(element) {
     collection.push(element);
-  }
+  };
 
-  this.dequeue = function () {
+  this.dequeue = function() {
     return collection.shift();
-  }
+  };
 
-  this.front = function () {
+  this.front = function() {
     return collection[0];
-  }
+  };
 
-  this.size = function () {
+  this.size = function() {
     return collection.length;
-  }
+  };
 
-  this.isEmpty = function () {
-    return (collection.lengtn === 0);
-  }
+  this.isEmpty = function() {
+    return collection.length === 0;
+  };
 }
 
 // Examples
