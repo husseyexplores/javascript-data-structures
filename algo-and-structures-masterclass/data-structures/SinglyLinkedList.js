@@ -68,6 +68,17 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
+  get(idx) {
+    if (idx < 0 || idx >= this.length) return undefined;
+    let currentNode = this.head;
+    let counter = 0;
+    while (counter !== idx) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode;
+  }
 }
 
 const list = new SinglyLinkedList();
