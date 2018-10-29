@@ -88,6 +88,20 @@ class SinglyLinkedList {
     }
     return false;
   }
+
+  insert(idx, val) {
+    if (idx < 0 || idx > this.length) return false;
+    if (idx === this.length) return !!this.push(val);
+    if (idx === 0) return !!this.unshift(val);
+
+    const newNode = new Node(val);
+    const previous = this.get(idx - 1);
+    const after = previous.next;
+    previous.next = newNode;
+    newNode.next = after;
+    this.length++;
+    return true;
+  }
 }
 
 const list = new SinglyLinkedList();
