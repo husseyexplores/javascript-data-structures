@@ -44,4 +44,23 @@ class SinglyLinkedList {
     }
     return currentNode;
   }
+
+  shift() {
+    if (!this.length || !this.head) return undefined;
+    const currentHead = this.head;
+    this.head = currentHead.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return currentHead;
+  }
 }
+
+const list = new SinglyLinkedList();
+list.push('Hi!');
+list.push('Good morning.');
+list.push('Good afternoon');
+list.push('Good evening');
+list.push('Good night.');
+list.push('Bye!');
