@@ -102,6 +102,20 @@ class SinglyLinkedList {
     this.length++;
     return true;
   }
+
+  remove(idx) {
+    if (idx < 0 || idx >= this.length) return undefined;
+    if (idx === this.length - 1) return this.pop();
+    if (idx === 0) return this.shift();
+
+    const previous = this.get(idx - 1);
+    const nodeToRemove = previous.next;
+    const after = nodeToRemove.next;
+
+    previous.next = after;
+    this.length--;
+    return nodeToRemove;
+  }
 }
 
 const list = new SinglyLinkedList();
