@@ -72,6 +72,29 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+
+  get(idx) {
+    if (idx < 0 || idx >= this.length) return undefined;
+    const middle = Math.floor(this.length / 2);
+    let counter;
+    let currentNode;
+    if (idx <= middle) {
+      counter = 0;
+      currentNode = this.head;
+      while (counter !== idx) {
+        currentNode = currentNode.next;
+        counter++;
+      }
+    } else {
+      counter = this.length - 1;
+      currentNode = this.tail;
+      while (counter !== idx) {
+        currentNode = currentNode.prev;
+        counter--;
+      }
+    }
+    return currentNode;
+  }
 }
 
 const list = new DoublyLinkedList();
