@@ -52,6 +52,8 @@ class BinarySearchTree {
     }
     return currentNode;
   }
+
+  BFS() {}
 }
 
 const tree = new BinarySearchTree();
