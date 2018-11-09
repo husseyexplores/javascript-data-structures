@@ -53,7 +53,20 @@ class BinarySearchTree {
     return currentNode;
   }
 
-  BFS() {}
+  BFS() {
+    if (!this.root) return null;
+    const q = [];
+    const data = [];
+    let node = this.root;
+    q.push(node);
+    while (q.length) {
+      node = q.shift();
+      data.push(node.val);
+      if (node.left) q.push(node.left);
+      if (node.right) q.push(node.right);
+    }
+    return data;
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -65,3 +78,12 @@ tree.insert(25);
 tree.insert(5);
 tree.insert(34);
 tree.insert(12);
+
+/*
+
+           20
+    10           40
+  5     15          25
+      12               34
+
+*/
