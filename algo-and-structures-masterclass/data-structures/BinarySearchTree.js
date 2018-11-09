@@ -67,6 +67,18 @@ class BinarySearchTree {
     }
     return data;
   }
+
+  DFSPO() {
+    if (!this.root) return null;
+    const data = [];
+    const traverse = node => {
+      data.push(node.val);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    };
+    traverse(this.root);
+    return data;
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -86,4 +98,7 @@ tree.insert(12);
   5     15          25
       12               34
 
+
+// BFS [20, 10, 40, 5, 15, 25, 12, 34]
+// DFS [20, 10, 5, 15, 12, 40, 25, 34]
 */
