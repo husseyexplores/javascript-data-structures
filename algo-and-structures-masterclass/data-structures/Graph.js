@@ -43,6 +43,68 @@ class Graph {
     delete this.adjacencyList[vertex];
     return true;
   }
+
+  DFSRecursive(start) {
+    const result = [];
+    const visited = {};
+
+    const helper = vtx => {
+      if (!vtx) return null;
+
+      result.push(vtx);
+      visited[vtx] = true;
+
+      this.adjacencyList[vtx].forEach(neighbour => {
+        if (!visited[neighbour]) {
+          helper(neighbour);
+        }
+      });
+    };
+
+    helper(start);
+    return result;
+  }
+
+  DFSIterative(start) {
+    const stack = [start];
+    const result = [];
+    const visited = {};
+    let vertex;
+
+    while (stack.length) {
+      vertex = stack.pop();
+      if (!visited[vertex]) {
+        result.push(vertex);
+        visited[vertex] = true;
+
+        this.adjacencyList[vertex].forEach(neighbour => {
+          stack.push(neighbour);
+        });
+      }
+    }
+    return result;
+  }
+
+  BFSIterative(start) {
+    const q = [start];
+    const result = [];
+    const visited = {};
+    let vertex;
+
+    while (q.length) {
+      vertex = q.shift();
+
+      if (!visited[vertex]) {
+        result.push(vertex);
+        visited[vertex] = true;
+
+        this.adjacencyList[vertex].forEach(neighbour => {
+          q.push(neighbour);
+        });
+      }
+    }
+    return result;
+  }
 }
 
 const g = new Graph();
