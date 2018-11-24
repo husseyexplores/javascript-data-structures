@@ -36,6 +36,13 @@ class Graph {
     );
     return true;
   }
+
+  removeVertex(vertex) {
+    if (!this.adjacencyList[vertex]) return false;
+    this.adjacencyList[vertex].map(item => this.removeEdge(vertex, item));
+    delete this.adjacencyList[vertex];
+    return true;
+  }
 }
 
 const g = new Graph();
@@ -43,7 +50,10 @@ g.addVertex('Tokyo');
 g.addVertex('Dallas');
 g.addVertex('Aspen');
 g.addVertex('Singapore');
+g.addVertex('Los Angeles');
 g.addEdge('Tokyo', 'Dallas');
-g.addEdge('Aspen', 'Dallas');
-g.addEdge('Aspen', 'Singapore');
-g.addEdge('Japan', 'Singapore');
+g.addEdge('Tokyo', 'Singapore');
+g.addEdge('Dallas', 'Aspen');
+g.addEdge('Dallas', 'Singapore');
+g.addEdge('Dallas', 'Los Angeles');
+g.addEdge('Singapore', 'Los Angeles');
