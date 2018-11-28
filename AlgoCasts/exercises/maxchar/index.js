@@ -5,6 +5,26 @@
 // maxChar("abcccccccd") === "c"
 // maxChar("apple 1231111") === "1"
 
-function maxChar(str) {}
+/*
+ * Solution #1 - trial and error
+ */
+function maxChar(str) {
+  const freqCounter = {};
+  for (const char of str) {
+    freqCounter[char] = freqCounter[char] + 1 || 1;
+  }
+
+  let max = 0;
+  let result;
+
+  for (const key in freqCounter) {
+    if (freqCounter[key] > max) {
+      max = freqCounter[key];
+      result = key;
+    }
+  }
+
+  return result;
+}
 
 module.exports = maxChar;
