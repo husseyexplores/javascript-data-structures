@@ -8,6 +8,51 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+/*
+ * Solution #1 - own - his
+ */
+// helper
+// const buildCharMap = str => {
+//   const freqCounter = {};
+//   const cleanedStr = str.replace(/[\^w]/g, '').toLowerCase();
+
+//   for (const char of cleanedStr) {
+//     freqCounter[char] = freqCounter[char] + 1 || 1;
+//   }
+
+//   return freqCounter;
+// };
+
+// function anagrams(stringA, stringB) {
+//   const freqCounterA = buildCharMap(stringA);
+//   const freqCounterB = buildCharMap(stringB);
+
+//   // Comparing freq counter objects
+//   const aProps = Object.getOwnPropertyNames(freqCounterA);
+//   const bProps = Object.getOwnPropertyNames(freqCounterB);
+//   if (aProps.length !== bProps.length) return false;
+
+//   for (const key in freqCounterA) {
+//     if (freqCounterA[key] !== freqCounterB[key]) {
+//       return false;
+//     }
+//   }
+
+//   return true;
+// }
+
+/*
+ * Solution #2
+ */
+// hepler
+const cleanedString = str =>
+  str
+    .replace(/[^\w]/gi, '')
+    .toLowerCase()
+    .split('')
+    .sort()
+    .join('');
+
+const anagrams = (strA, strB) => cleanedString(strA) === cleanedString(strB);
 
 module.exports = anagrams;
