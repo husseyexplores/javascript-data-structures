@@ -17,6 +17,26 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+/*
+ * Solution #1 - own - O(n^2);
+ */
+const steps = n => {
+  for (let i = 1; i <= n; i++) {
+    let result = '';
+    const totalSpaces = n - i;
+    const totalHashes = i;
+
+    // Build hashes
+    for (let j = 1; j <= totalHashes; j++) {
+      result += '#';
+    }
+
+    // Build Spaces
+    for (let j = 1; j <= totalSpaces; j++) {
+      result += ' ';
+    }
+    console.log(result);
+  }
+};
 
 module.exports = steps;
