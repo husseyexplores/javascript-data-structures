@@ -71,13 +71,12 @@
  * Solution #3 - own recursive
  */
 const pyramid = (n, row = 0, str = '') => {
-  const maxChars = n * 2 - 1;
-  const midPoint = Math.floor(maxChars / 2);
-
   // base case, all done;
   if (n === row) {
     return;
   }
+
+  const maxChars = n * 2 - 1;
 
   // row is complete, print it;
   if (str.length === maxChars) {
@@ -86,6 +85,7 @@ const pyramid = (n, row = 0, str = '') => {
   }
 
   // build the stair/level
+  const midPoint = Math.floor(maxChars / 2);
   const hashMinIdx = midPoint - row;
   const hashMaxIdx = midPoint + row;
   /* eslint-disable no-param-reassign */
