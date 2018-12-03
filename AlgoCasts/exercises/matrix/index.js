@@ -14,9 +14,9 @@
 //     [12, 13, 14, 5],
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
-/* eslint-disable */
+
 const matrix = num => {
-  const result = new Array(num).fill(new Array(num));
+  const result = Array.from({ length: num }, () => new Array(num).fill(0));
   let startRowIdx = 0;
   let startColIdx = 0;
   let endRowIdx = num - 1;
@@ -37,10 +37,32 @@ const matrix = num => {
       counter++;
     }
 
+    endColIdx--;
+
+    for (let i = endColIdx; i >= startColIdx; i--) {
+      result[endRowIdx][i] = counter;
+      counter++;
+    }
+
     endRowIdx--;
+
+    for (let i = endRowIdx; i >= startRowIdx; i--) {
+      result[i][startColIdx] = counter;
+      counter++;
+    }
+
+    startColIdx++;
   }
 
   return result;
 };
-matrix(3);
+
 module.exports = matrix;
+
+/*
+           colStart=0                colEnd=3
+ rowStart=0    [[1,      2,      3,     4],
+               [12,     13,     14,     5],
+               [11,     16,     15,     6],
+ rowEnd=3      [10,      9,      8,     7]]
+*/
