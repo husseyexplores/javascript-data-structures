@@ -15,6 +15,9 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
+/*
+ * Solution #1 - with pseudocode
+ */
 const matrix = num => {
   const result = Array.from({ length: num }, () => new Array(num).fill(0));
   let startRowIdx = 0;
@@ -56,6 +59,10 @@ const matrix = num => {
 
   return result;
 };
+
+/*
+ * Solution #2
+ */
 
 module.exports = matrix;
 
