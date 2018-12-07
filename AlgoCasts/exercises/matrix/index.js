@@ -25,6 +25,9 @@ const matrix = num => {
   let endRowIdx = num - 1;
   let endColIdx = num - 1;
 
+ 	let uselessPointer;
+ 	let uselessPointer2;
+
   let counter = 1;
 
   while (startColIdx <= endColIdx && startRowIdx <= endRowIdx) {
