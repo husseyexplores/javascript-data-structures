@@ -19,14 +19,11 @@
  * Solution #1 - with pseudocode
  */
 const matrix = num => {
-  const result = Array.from({ length: num }, () => new Array(num).fill(0));
+  const result = Array.from({ length: num }, () => new Array(num));
   let startRowIdx = 0;
   let startColIdx = 0;
   let endRowIdx = num - 1;
   let endColIdx = num - 1;
-
- 	let uselessPointer;
- 	let uselessPointer2;
 
   let counter = 1;
 
