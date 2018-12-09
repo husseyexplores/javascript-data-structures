@@ -8,6 +8,21 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+/*
+ * Solution #1 - own;
+ */
+const fib = n => {
+  if (n === 1) return 1;
+  let result = 0;
+  let prevNum = 0;
+  let curNum = 1;
+  for (let i = 0; i < n - 1; i++) {
+    // n = 1
+    result = prevNum + curNum; // 0 + 1 = 1
+    prevNum = curNum; // 1
+    curNum = result; // 1
+  }
+  return result;
+};
 
 module.exports = fib;
