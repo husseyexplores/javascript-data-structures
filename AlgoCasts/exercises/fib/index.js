@@ -8,20 +8,31 @@
 // Example:
 //   fib(4) === 3
 
+// /*
+//  * Solution #1 - own;
+//  */
+// const fib = n => {
+//   if (n === 1) return 1;
+//   let result = 0;
+//   let prevNum = 0;
+//   let curNum = 1;
+//   for (let i = 1; i < n; i++) {
+//     result = prevNum + curNum;
+//     prevNum = curNum;
+//     curNum = result;
+//   }
+//   return result;
+// };
+
 /*
- * Solution #1 - own;
+ * Solution #1 - own recursive;
  */
-const fib = n => {
-  if (n === 1) return 1;
-  let result = 0;
-  let prevNum = 0;
-  let curNum = 1;
-  for (let i = 1; i < n; i++) {
-    result = prevNum + curNum;
-    prevNum = curNum;
-    curNum = result;
-  }
-  return result;
+const fib = (n, prevNum = 0, curNum = 1, series = [0, 1]) => {
+  if (n === series.length - 1) return series[n];
+  const newPrevNum = curNum;
+  const newCurNum = prevNum + curNum;
+  series.push(newCurNum);
+  return fib(n, newPrevNum, newCurNum, series);
 };
 
 module.exports = fib;
