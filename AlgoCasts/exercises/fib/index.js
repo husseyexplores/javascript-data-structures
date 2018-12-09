@@ -51,9 +51,21 @@
 /*
  * Solution #4 - Recursive;
  */
-const fib = (n, prevNum = 0, curNum = 1, series = [0, 1]) => {
+const memoize = fn => {
+  const cache = {};
+  return (...args) => {
+    if (cache[args]) return cache[args];
+    const result = fn.apply(this, args);
+    cache[args] = result;
+    return result;
+  };
+};
+
+let fib = n => {
   if (n < 2) return n;
   return fib(n - 1) + fib(n - 2);
 };
+
+fib = memoize(fib);
 
 module.exports = fib;
