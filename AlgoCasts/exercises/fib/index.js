@@ -17,10 +17,9 @@ const fib = n => {
   let prevNum = 0;
   let curNum = 1;
   for (let i = 1; i < n; i++) {
-    // n = 1
-    result = prevNum + curNum; // 0 + 1 = 1
-    prevNum = curNum; // 1
-    curNum = result; // 1
+    result = prevNum + curNum;
+    prevNum = curNum;
+    curNum = result;
   }
   return result;
 };
